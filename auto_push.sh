@@ -1,5 +1,10 @@
 #!/bin/bash
+
+echo "Enter Commit message:"
+read msg
+
 git add .
-git commit -m "auto commit"
+git commit -m "$msg"
 git push origin main
-echo "Code pushed successfully"
+
+echo "Code pushed successfully 🚀"
