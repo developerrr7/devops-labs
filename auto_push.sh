@@ -1,10 +1,18 @@
 #!/bin/bash
 
-echo "Enter Commit message:"
-read msg
+#chech for changes 
 
-git add .
-git commit -m "$msg"
-git push origin main
+status=$(git status --porcelain)
 
-echo "Code pushed successfully 🚀"
+if [-z "$status"]; then
+	echo "No changes to commit 😎"
+else
+	echo "Enter Commit message:"
+	read msg
+
+	git add .
+	git commit -m "$msg"
+	git push origin main
+
+	echo "Code pushed successfully 🚀"
+fi
